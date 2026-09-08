@@ -1,0 +1,6 @@
+{
+  "minimum_chrome_version": "110",
+  "background": {
+    "service_worker": "background/service-worker.js"
+  }
+}

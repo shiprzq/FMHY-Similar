@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="FMHY Similar">
+  <title>FMHY Similar</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#242a35"/>
+      <stop offset="1" stop-color="#11141a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5a5f"/>
+      <stop offset="1" stop-color="#d63038"/>
+    </linearGradient>
+    <linearGradient id="lineA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f5f9"/>
+      <stop offset="1" stop-color="#dfe5ee"/>
+    </linearGradient>
+    <linearGradient id="lineB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8e99ab"/>
+      <stop offset="1" stop-color="#79859a"/>
+    </linearGradient>
+    <linearGradient id="lineC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6ebf2"/>
+      <stop offset="1" stop-color="#cfd7e2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- A wiki list item, marked by the extension's red indicator. -->
+  <rect x="0" y="0" width="128" height="128" rx="30" fill="url(#tile)" stroke="#454e5e" stroke-width="1.5"/>
+  <rect x="22.4" y="27.5" width="12.2" height="73" rx="6.1" fill="url(#accent)"/>
+  <rect x="44.2" y="27.5" width="61.4" height="17.3" rx="8.6" fill="url(#lineA)"/>
+  <rect x="44.2" y="55.3" width="42.9" height="17.3" rx="8.6" fill="url(#lineB)"/>
+  <rect x="44.2" y="83.2" width="61.4" height="17.3" rx="8.6" fill="url(#lineC)"/>
+</svg>

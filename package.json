@@ -1,0 +1,40 @@
+{
+  "name": "fmhy-similar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Manifest V3 browser extension that enhances the FMHY wiki with resource indicators, favorites and instant offline \"find similar\" suggestions.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiprzq/FMHY-Similar.git"
+  },
+  "author": "shiprzq",
+  "bugs": {
+    "url": "https://github.com/shiprzq/FMHY-Similar/issues"
+  },
+  "homepage": "https://github.com/shiprzq/FMHY-Similar#readme",
+  "keywords": [
+    "fmhy",
+    "browser-extension",
+    "manifest-v3",
+    "chrome",
+    "firefox",
+    "search",
+    "offline",
+    "privacy"
+  ],
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "build:chromium": "node tools/build.mjs --platform chromium",
+    "build:firefox": "node tools/build.mjs --platform firefox",
+    "build:db": "node tools/build-database.mjs",
+    "icons": "node tools/make-icons.mjs",
+    "test": "node tools/build.mjs --dry-run && node tools/test.mjs",
+    "package": "node tools/build.mjs && node tools/package.mjs",
+    "prepare-dev": "node tools/make-icons.mjs && node tools/build.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
