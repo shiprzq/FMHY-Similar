@@ -1,0 +1,30 @@
+{
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "fmhy-similar@fmhy.community",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": { "required": ["none"] }
+    },
+    "gecko_android": {
+      "strict_min_version": "120.0"
+    }
+  },
+  "background": {
+    "scripts": [
+      "core/namespace.js",
+      "core/browser.js",
+      "core/text.js",
+      "core/url-validator.js",
+      "database/schema.js",
+      "database/codec.js",
+      "core/storage.js",
+      "core/favorites.js",
+      "core/search.js",
+      "core/similarity.js",
+      "database/sources.js",
+      "database/fmhy-parser.js",
+      "database/database.js",
+      "background/background.js"
+    ]
+  }
+}

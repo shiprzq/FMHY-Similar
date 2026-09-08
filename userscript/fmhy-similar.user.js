@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         FMHY Similar
-// @namespace    https://fmhy-similar-support.oneapp.dev/
+// @namespace    https://github.com/shiprzq/FMHY-Similar
 // @version      1.0.0
 // @description  Find similar alternatives to any resource on fmhy.net. Double-click a resource for up to 5 related tools, and save favourites. No tracking, no accounts.
-// @author       FMHY Similar
+// @author       shiprzq
 // @license      MIT
-// @homepageURL  https://fmhy-similar-support.oneapp.dev/
-// @supportURL   https://fmhy-similar-support.oneapp.dev/
+// @homepageURL  https://github.com/shiprzq/FMHY-Similar
+// @supportURL   https://github.com/shiprzq/FMHY-Similar
 // @match        https://fmhy.net/*
-// @icon         https://fmhy.net/favicon.ico
+// @icon         https://raw.githubusercontent.com/shiprzq/FMHY-Similar/main/assets/logo.svg
 // @run-at       document-idle
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -18,8 +18,8 @@
 // @grant        GM_registerMenuCommand
 // @connect      raw.githubusercontent.com
 // @connect      fmhy.net
-// @updateURL    https://raw.githubusercontent.com/YOUR-USER/fmhy-similar/main/dist/fmhy-similar.user.js
-// @downloadURL  https://raw.githubusercontent.com/YOUR-USER/fmhy-similar/main/dist/fmhy-similar.user.js
+// @updateURL    https://raw.githubusercontent.com/shiprzq/FMHY-Similar/main/dist/fmhy-similar.user.js
+// @downloadURL  https://raw.githubusercontent.com/shiprzq/FMHY-Similar/main/dist/fmhy-similar.user.js
 // ==/UserScript==
 
 /* FMHY Similar — userscript build.
@@ -38,8 +38,8 @@
 
 /* ---- configuration ---- */
 var FMHYS_CONFIG = {
-  DATA_URL: "https://raw.githubusercontent.com/YOUR-USER/fmhy-similar/main/database/resources.json",
-  BASE_URL: "https://raw.githubusercontent.com/YOUR-USER/fmhy-similar/main/"
+  DATA_URL: "https://raw.githubusercontent.com/shiprzq/FMHY-Similar/main/database/resources.json",
+  BASE_URL: "https://raw.githubusercontent.com/shiprzq/FMHY-Similar/main/"
 };
 globalThis.FMHYS = globalThis.FMHYS || {};
 globalThis.FMHYS.USERSCRIPT = FMHYS_CONFIG;

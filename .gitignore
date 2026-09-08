@@ -1,0 +1,29 @@
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.iml
+
+# ---- Build outputs ----
+platform/
+dist/
+*.log
+npm-debug.log*
+.pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---- Node / tooling ----
+node_modules/
+.npm/
+.cache/
+coverage/
+
+# ---- Generated per-user state ----
+.env
+.env.local
