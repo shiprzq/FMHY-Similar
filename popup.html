@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FMHY Similar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app" id="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <h1 class="brand-name">FMHY Similar</h1>
+      </div>
+      <button type="button" class="icon-btn" id="btn-settings" aria-label="Open settings" title="Settings">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M8 5.4a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2zm0 1.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
+          <path fill="currentColor" d="M6.9.9a.7.7 0 0 0-.69.58l-.2 1.15a5.6 5.6 0 0 0-.94.55l-1.1-.4a.7.7 0 0 0-.84.31l-1.1 1.9a.7.7 0 0 0 .15.88l.9.75a5.6 5.6 0 0 0 0 1.1l-.9.75a.7.7 0 0 0-.15.88l1.1 1.9a.7.7 0 0 0 .84.31l1.1-.4c.29.22.6.4.94.55l.2 1.15a.7.7 0 0 0 .69.58h2.2a.7.7 0 0 0 .69-.58l.2-1.15c.34-.15.65-.33.94-.55l1.1.4a.7.7 0 0 0 .84-.31l1.1-1.9a.7.7 0 0 0-.15-.88l-.9-.75a5.6 5.6 0 0 0 0-1.1l.9-.75a.7.7 0 0 0 .15-.88l-1.1-1.9a.7.7 0 0 0-.84-.31l-1.1.4a5.6 5.6 0 0 0-.94-.55l-.2-1.15A.7.7 0 0 0 9.1.9H6.9z" opacity=".85"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="searchwrap">
+      <label class="sr-only" for="q">Search FMHY resources</label>
+      <svg class="search-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M7.1 1.6a5.5 5.5 0 1 0 3.36 9.85l3.04 3.04a.8.8 0 1 0 1.13-1.13l-3.04-3.04A5.5 5.5 0 0 0 7.1 1.6zm0 1.6a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8z"/>
+      </svg>
+      <input type="search" id="q" class="search" placeholder="Search resources…"
+             autocomplete="off" spellcheck="false" aria-describedby="search-hint">
+      <button type="button" class="search-clear" id="q-clear" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <p id="search-hint" class="sr-only">Searches the local FMHY resource database. Results update as you type.</p>
+
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button type="button" role="tab" class="tab" id="tab-favorites"
+              aria-controls="panel-favorites" aria-selected="true" data-tab="favorites">
+        Favorites <span class="pill" id="fav-count">0</span>
+      </button>
+      <button type="button" role="tab" class="tab" id="tab-recent"
+              aria-controls="panel-recent" aria-selected="false" data-tab="recent" tabindex="-1">
+        Recent
+      </button>
+      <button type="button" role="tab" class="tab" id="tab-search"
+              aria-controls="panel-search" aria-selected="false" data-tab="search" tabindex="-1">
+        Search
+      </button>
+    </nav>
+
+    <!-- ---------------------------------------------------------- FAVORITES -->
+    <section role="tabpanel" id="panel-favorites" aria-labelledby="tab-favorites" class="panel">
+      <div class="toolbar">
+        <label class="sr-only" for="fav-filter">Filter favorites</label>
+        <input type="search" id="fav-filter" class="mini-input" placeholder="Filter favorites…"
+               autocomplete="off" spellcheck="false">
+        <label class="sr-only" for="fav-cat">Filter by category</label>
+        <select id="fav-cat" class="mini-select">
+          <option value="">All categories</option>
+        </select>
+        <label class="sr-only" for="fav-sort">Sort favorites</label>
+        <select id="fav-sort" class="mini-select">
+          <option value="added-desc">Newest first</option>
+          <option value="added-asc">Oldest first</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="name-desc">Name Z–A</option>
+        </select>
+      </div>
+
+      <div class="list" id="fav-list" role="list" aria-live="polite"></div>
+
+      <div class="panel-foot" id="fav-foot" hidden>
+        <button type="button" class="danger-btn" id="fav-clear">Clear all favorites</button>
+      </div>
+
+      <div class="confirm" id="fav-confirm" hidden role="alertdialog"
+           aria-labelledby="fav-confirm-title" aria-describedby="fav-confirm-desc">
+        <p class="confirm-title" id="fav-confirm-title">Clear all favorites?</p>
+        <p class="confirm-desc" id="fav-confirm-desc">This removes every saved resource. It cannot be undone.</p>
+        <div class="confirm-actions">
+          <button type="button" class="ghost-btn" id="fav-confirm-no">Cancel</button>
+          <button type="button" class="danger-btn" id="fav-confirm-yes">Clear all</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------- RECENT -->
+    <section role="tabpanel" id="panel-recent" aria-labelledby="tab-recent" class="panel" hidden>
+      <div class="list" id="recent-list" role="list" aria-live="polite"></div>
+      <div class="panel-foot" id="recent-foot" hidden>
+        <button type="button" class="ghost-btn" id="recent-clear">Clear history</button>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------- SEARCH -->
+    <section role="tabpanel" id="panel-search" aria-labelledby="tab-search" class="panel" hidden>
+      <div class="list" id="search-list" role="list" aria-live="polite"></div>
+    </section>
+
+    <footer class="statusbar">
+      <span class="status-dot" id="db-dot" aria-hidden="true"></span>
+      <span id="db-status">Loading database…</span>
+    </footer>
+  </div>
+
+  <script src="../core/namespace.js"></script>
+  <script src="../core/browser.js"></script>
+  <script src="../core/text.js"></script>
+  <script src="../core/url-validator.js"></script>
+  <script src="../core/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

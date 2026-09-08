@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FMHY Similar — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+<div class="shell">
+
+  <header class="head">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <h1>FMHY Similar</h1>
+        <p class="sub">Settings &amp; resource database</p>
+      </div>
+    </div>
+    <span class="ver" id="ext-version"></span>
+  </header>
+
+  <main>
+
+    <!-- ================================================== GENERAL -->
+    <section class="card" aria-labelledby="h-general">
+      <h2 id="h-general">General</h2>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-enabled">Enable FMHY Similar</label>
+          <p>Turns the whole page enhancement on or off. When off, FMHY pages are left untouched.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-enabled">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-indicators">Enable resource indicators</label>
+          <p>Shows the thin red line beside every detected resource.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-indicators">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-favbuttons">Enable favorite buttons</label>
+          <p>Shows a star beside each resource for one-click saving.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-favbuttons">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-dblclick">Double-click to Find Similar</label>
+          <p>Double-clicking a resource or its red indicator opens the alternatives card.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-dblclick">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-simbtn">“Similar” button</label>
+          <p>An always-available alternative to double-clicking. <em>Auto</em> shows it on hover, and always on touch devices.</p>
+        </div>
+        <select id="s-simbtn" class="select">
+          <option value="auto">Auto</option>
+          <option value="always">Always visible</option>
+          <option value="never">Hidden</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-max">Maximum alternatives</label>
+          <p>Fixed at 5 by design — a short, high-confidence list beats a long one.</p>
+        </div>
+        <input type="number" id="s-max" class="num" value="5" min="5" max="5" readonly
+               aria-readonly="true" tabindex="-1">
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-minscore">Minimum similarity score</label>
+          <p>Alternatives below this score are hidden rather than padding the list. <span id="s-minscore-val" class="mono">28</span>/100</p>
+        </div>
+        <input type="range" id="s-minscore" class="range" min="0" max="70" step="1" value="28">
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-anim">Animations</label>
+          <p>Smooth transitions for the card and buttons. Automatically disabled when your system requests reduced motion.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-anim">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- =============================================== APPEARANCE -->
+    <section class="card" aria-labelledby="h-appearance">
+      <h2 id="h-appearance">Appearance</h2>
+
+      <fieldset class="radios">
+        <legend>Theme</legend>
+        <label class="radio">
+          <input type="radio" name="theme" value="system" id="th-system">
+          <span>Follow system theme</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="theme" value="light" id="th-light">
+          <span>Light</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="theme" value="dark" id="th-dark">
+          <span>Dark</span>
+        </label>
+      </fieldset>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-density">Density</label>
+          <p>Compact hides button labels so long resource lists stay tidy.</p>
+        </div>
+        <select id="s-density" class="select">
+          <option value="auto">Auto</option>
+          <option value="comfortable">Comfortable</option>
+          <option value="compact">Compact</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- ================================================= DATABASE -->
+    <section class="card" aria-labelledby="h-database">
+      <h2 id="h-database">Database</h2>
+
+      <dl class="facts">
+        <div><dt>Database version</dt><dd id="db-version">—</dd></div>
+        <div><dt>Last updated</dt><dd id="db-updated">—</dd></div>
+        <div><dt>Resource count</dt><dd id="db-count">—</dd></div>
+        <div><dt>Source</dt><dd id="db-source" class="mono trunc">—</dd></div>
+        <div><dt>Schema</dt><dd id="db-schema">—</dd></div>
+      </dl>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-mode">Update source</label>
+          <p>
+            <strong>Per page</strong> fetches each wiki page's markdown from FMHY's own git mirror.
+            <strong>Single page</strong> fetches <span class="mono">fmhy.net/single-page.md</span> in one request.
+            Both are documents FMHY publishes for reuse — no page scraping.
+          </p>
+        </div>
+        <select id="s-mode" class="select">
+          <option value="repo">Per page (git mirror)</option>
+          <option value="single">Single page document</option>
+        </select>
+      </div>
+
+      <div class="progress" id="db-progress" hidden>
+        <div class="bar"><div class="bar-fill" id="db-bar"></div></div>
+        <p class="progress-text" id="db-progress-text">Starting…</p>
+      </div>
+
+      <p class="notice" id="db-notice" hidden role="status"></p>
+
+      <div class="actions">
+        <button type="button" class="btn btn--primary" id="btn-update">Update database</button>
+        <button type="button" class="btn" id="btn-import">Import JSON…</button>
+        <button type="button" class="btn" id="btn-export">Export JSON</button>
+        <button type="button" class="btn btn--danger" id="btn-reset">Reset database</button>
+        <input type="file" id="file-import" accept="application/json,.json" hidden>
+      </div>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-autoupdate">Check for updates automatically</label>
+          <p>Off by default. When enabled, the database refreshes at most once every 24 hours. Nothing about your browsing is sent — only a plain download of the public wiki markdown.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-autoupdate">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <details class="log">
+        <summary>Recent database activity</summary>
+        <ul id="db-log" class="loglist"></ul>
+      </details>
+    </section>
+
+    <!-- ================================================== PRIVACY -->
+    <section class="card" aria-labelledby="h-privacy">
+      <h2 id="h-privacy">Privacy</h2>
+
+      <p class="lede">
+        FMHY Similar has no server, no account and no analytics. Everything it knows lives in your
+        browser's extension storage and never leaves your device.
+      </p>
+
+      <h3>What is stored</h3>
+      <ul class="bullets">
+        <li><strong>Your settings</strong> — the options on this page (synced by your browser profile, if you have sync on).</li>
+        <li><strong>Your favorites</strong> — only resources you explicitly star: name, category, description and links.</li>
+        <li><strong>The resource database</strong> — the public FMHY wiki turned into structured JSON, stored locally.</li>
+        <li><strong>Recently viewed</strong> — up to 50 resources you opened from a Find Similar card. Optional, and clearable.</li>
+      </ul>
+
+      <h3>What is never collected</h3>
+      <ul class="bullets">
+        <li>No browsing history. The extension does not have, and does not request, the <span class="mono">history</span> or <span class="mono">tabs</span> permission.</li>
+        <li>No FMHY URLs are sent anywhere. Resource matching happens entirely against the local database.</li>
+        <li>No telemetry, no analytics, no identifiers, no fingerprinting.</li>
+        <li>No scripts are injected into third-party resource websites — the content script only runs on <span class="mono">fmhy.net</span>.</li>
+      </ul>
+
+      <h3>Network activity</h3>
+      <p class="lede">
+        The only network requests this extension ever makes are the dataset downloads you trigger with
+        <em>Update database</em> (or the optional daily check above). Those requests go to FMHY's own
+        published markdown, contain no information about you, and happen at most once per day.
+      </p>
+
+      <div class="row">
+        <div class="row-text">
+          <label for="s-recent">Keep a “recently viewed” list</label>
+          <p>Records only resources you open from a Find Similar card. Turn off to record nothing.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="s-recent">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="btn-clear-recent">Clear recently viewed</button>
+        <button type="button" class="btn btn--danger" id="btn-reset-settings">Reset all settings</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>
+      FMHY Similar is an unofficial community enhancement. It is not affiliated with, or endorsed by, FMHY.
+      Resource data is derived from the publicly published
+      <span class="mono">fmhy.net</span> wiki markdown.
+    </p>
+  </footer>
+
+  <div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
+</div>
+
+<script src="../core/namespace.js"></script>
+<script src="../core/browser.js"></script>
+<script src="../core/text.js"></script>
+<script src="../core/url-validator.js"></script>
+<script src="../database/schema.js"></script>
+<script src="../database/codec.js"></script>
+<script src="../core/storage.js"></script>
+<script src="options.js"></script>
+</body>
+</html>
